@@ -1,18 +1,34 @@
 const queryStr = window.location.search;
 const urlParams = new URLSearchParams(queryStr);
-const site = urlParams.get('q') ?? 'about';
+const site = urlParams.get('q') ?? 'home';
 
 document.onreadystatechange = function () {
     if (document.readyState == 'complete') {
-        console.log(document.getElementsByName("subsite"));
-        [...document.getElementsByTagName('subsite')].forEach(function (el) {
-            if (el.id != site && el.remove !== null)  {
-                console.log(`Removing ${el}`);
-                el.remove();
-            }
-        });
+        const contentEl = document.getElementById('content');
+        if (site == 'all-audio') {
+            include(contentEl, 'acousmatic-music');
+            include(contentEl, 'piano-recordings');
+        } else {
+            include(contentEl, site);
+        }
     }
 };
+
+function include(element, site) {
+    const req = new XMLHttpRequest();
+    req.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            console.log(this.status);
+            if (this.status == 200) {
+                element.innerHTML += this.responseText;
+                console.log(element.innerHTML);
+            }
+            if (this.status == 404) {element.innerHTML = "Page not found.";}
+        }
+    }
+    req.open("GET", `/sites/${site}.html`, true);
+    req.send();
+}
 
 
 function show_texts() {

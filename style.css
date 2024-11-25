@@ -13,10 +13,12 @@ h1 {
     color: white;
     font-family: monospace;
     font-weight: lighter;
+    padding-left: 20px;
 }
 
 #menu {
-    width: 100px;
+    width: 150px;
+    padding-left: 20px;
 }
 
 #container {
@@ -34,4 +36,10 @@ a:visited {
 
 a:hover {
     background-color: gray;
+}
+
+audio {
+    padding-top: 10px;
+    height: 45px;
+    
 }
