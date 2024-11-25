@@ -1,5 +1,7 @@
 body {
     background-color: black;
+    color: white;
+    font-family: monospace;
 }
 
 p {
@@ -11,4 +13,25 @@ h1 {
     color: white;
     font-family: monospace;
     font-weight: lighter;
+}
+
+#menu {
+    width: 100px;
+}
+
+#container {
+    width: 100%;
+    display: flex;
+}
+
+a {
+    color: white;
+}
+
+a:visited {
+    color: blue;
+}
+
+a:hover {
+    background-color: gray;
 }
