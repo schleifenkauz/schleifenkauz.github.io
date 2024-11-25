@@ -1,0 +1,14 @@
+body {
+    background-color: black;
+}
+
+p {
+    font-family: "monospace";
+    color: white;
+}
+
+h1 {
+    color: white;
+    font-family: monospace;
+    font-weight: lighter;
+}
