@@ -5,12 +5,7 @@ const site = urlParams.get('q') ?? 'home';
 document.onreadystatechange = function () {
     if (document.readyState == 'complete') {
         const contentEl = document.getElementById('content');
-        if (site == 'all-audio') {
-            include(contentEl, 'acousmatic-music');
-            include(contentEl, 'piano-recordings');
-        } else {
-            include(contentEl, site);
-        }
+        include(contentEl, site);
     }
 };
 

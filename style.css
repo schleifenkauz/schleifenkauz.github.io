@@ -2,28 +2,29 @@ body {
     background-color: black;
     color: white;
     font-family: monospace;
-    padding: 5px;
+    font-size: 14px;
+    padding: 10px;
 }
 
 p {
     font-family: "monospace";
     color: white;
+    font-size: 13px;
 }
 
 h1 {
     color: white;
     font-family: monospace;
     font-weight: lighter;
-    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #menu {
     width: 175px;
-    padding-left: 20px;
+    align-items: center;
 }
 
-#container {
-    width: 100%;
+.horizontal {
     display: flex;
 }
 
@@ -32,15 +33,27 @@ a {
 }
 
 a:visited {
-    color: blue;
+    color: lightblue;
 }
 
-a:hover {
-    background-color: gray;
+.menu-link {
+    padding: 5px;
+}
+
+.menu-link:hover {
+    background-color: #410000;
 }
 
 audio {
     padding-top: 10px;
     height: 45px;
-    
+}
+
+#content {
+    float: left;
+}
+
+.column {
+    float: left;
+    width: 500px;
 }
