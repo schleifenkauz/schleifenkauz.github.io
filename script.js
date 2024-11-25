@@ -29,8 +29,3 @@ function include(element, site) {
     req.open("GET", url, true);
     req.send();
 }
-
-
-function show_texts() {
-
-}

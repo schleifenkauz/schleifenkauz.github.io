@@ -2,7 +2,7 @@ body {
     background-color: black;
     color: white;
     font-family: monospace;
-    padding-left: 5px;
+    padding: 5px;
 }
 
 p {
