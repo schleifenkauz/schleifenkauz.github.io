@@ -21,12 +21,12 @@ function include(element, site) {
             console.log(this.status);
             if (this.status == 200) {
                 element.innerHTML += this.responseText;
-                console.log(element.innerHTML);
             }
             if (this.status == 404) {element.innerHTML = "Page not found.";}
         }
     }
-    req.open("GET", `/sites/${site}.html`, true);
+    const url =  `${window.location.origin}/sites/${site}.html`;
+    req.open("GET", url, true);
     req.send();
 }
 
