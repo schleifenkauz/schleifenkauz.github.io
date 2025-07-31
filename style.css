@@ -63,42 +63,40 @@ audio {
     width: 500px;
 }
 
-label {
-    margin: 0px 0px 0px 12px;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-input {
+input, textarea {
     background-color: black;
     border-color: white;
+    border-width: 1px;
     color: white;
-    margin: 12px;
-    border-radius: 4px;
 }
 
-input[type=text] {
-    padding: 5px;
-    box-sizing: border-box;
-    width: 300px;
+input:focus, textarea:focus {
+    border-color: blue;
 }
 
-input[type=text]:focus {
-    background-color: rgb(54, 0, 0);
-}
-
-input[type=submit] {
+#submit-button {
     padding: 5px;
     font-size: 15px;
+    color: white;
+    background-color: rgb(36, 32, 32);
 }
 
-input[type=submit]:hover {
+#submit-button:hover {
     background-color: #410000;;
 }
 
+#email-input {
+    min-width: 50vw;
+}
+
 #message-input {
-    background-color: black;
-    border-color: white;
-    color: white;
-    
-    margin: 12px;
+    min-height: 100px;
+    min-width: 50vw;
 }
 
