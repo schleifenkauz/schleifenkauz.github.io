@@ -100,3 +100,40 @@ input:focus, textarea:focus {
     min-width: 50vw;
 }
 
+pre {
+    background-color: #141414;
+    color: #00ff37;
+    padding: 0px 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 14px;
+}
+code {
+    font-family: monospace;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    padding: 5px 0px;
+    width: 60px;
+    font-size: 12px;
+    border: 1px solid grey;
+    background-color: transparent;
+    border-radius: 4px;
+    color: white;
+}
+.copy-btn:active {
+    background: #00ff3753;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 0, 0, 0.3);
+}
+
+.code-container {
+    position: relative;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,28 @@
+<h2>Ponticello</h2>
+
+Ponticello is a composition environment for electronic music based on the audio programming language <a href="https://supercollider.github.io/">SuperCollider</a>.
+
+<h4>Installation</h4>
+
+Ponticello uses the SuperCollider language and its server <code>scsynth</code> for audio synthesis. 
+These can be downloaded <a href="https://supercollider.github.io/downloads.html">here</a>.
+<br/>
+Ponticello can be installed by executing one of the following code snippets in the shell, depending on your operating system. 
+<br>
+(An appropriate <em>Java Runtime Environment</em> and the <em>JavaFX SDK</em> are both automatically downloaded if you don't have them installed on your system.)
+
+<h4>Windows (PowerShell)</h4>
+<div class="code-container">
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    <pre><code>
+Invoke-WebRequest "https://schleifenkauz.de/software/get-ponticello.ps1" -UseBasicParsing | iex
+    </code></pre>
+</div>
+
+<h4>Linux/Mac (Bash)</h4>
+<div class="code-container">
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    <pre><code>
+curl -fsSL "https://schleifenkauz.de/software/get-ponticello.sh" | bash
+    </code></pre>
+</div>

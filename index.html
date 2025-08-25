@@ -9,11 +9,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling.innerText;
+            navigator.clipboard.writeText(codeBlock).then(() => {
+                button.textContent = "Copied!";
+                setTimeout(() => (button.textContent = "Copy"), 1500);
+            });
+        }
+    </script>
 
 </head>
 
-<body style="background-image: url('/img/v8_3.png'); background-repeat: no-repeat; background-attachment: scroll; background-blend-mode: normal;">
+<body
+    style="background-image: url('/img/v8_3.png'); background-repeat: no-repeat; background-attachment: scroll; background-blend-mode: normal;">
     <div class="horizontal">
         <a href="./">
             <h1>SCHLEIFENKAUZ</h1>
@@ -27,8 +38,9 @@
                 <a href="./index.html?q=instrumental">instrumental</a> <br>
                 <a href="./index.html?q=piano-recordings">piano recordings</a>  
             </div> -->
-            <a class="menu-link" href="./index.html?q=scores">scores</a> 
-            <a class="menu-link" href="./index.html?q=software">software</a>
+            <a class="menu-link" href="./index.html?q=scores">scores</a>
+            <!-- <a class="menu-link" href="./index.html?q=software">software</a> -->
+            <a class="menu-link" href="./index.html?q=ponticello">ponticello</a>
             <a class="menu-link" href="./index.html?q=contact">contact</a>
             <a class="menu-link" href="./index.html?q=imprint">imprint</a>
         </div>
