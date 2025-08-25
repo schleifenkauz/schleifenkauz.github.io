@@ -101,12 +101,13 @@ input:focus, textarea:focus {
 }
 
 pre {
-    background-color: #141414;
+    background-color: rgba(50, 50, 50, 0.3);
     color: #00ff37;
     padding: 0px 10px;
     border-radius: 8px;
     overflow-x: auto;
     font-size: 14px;
+    border: 1px solid grey;
 }
 code {
     font-family: monospace;
@@ -130,7 +131,7 @@ code {
 }
 
 .copy-btn:hover {
-    background: rgba(255, 0, 0, 0.3);
+    background: rgba(0, 0, 255, 0.3);
 }
 
 .code-container {
