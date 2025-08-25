@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if ! command -v unzip >/dev/null 2>&1; then
+    echo "Error: unzip is required but not installed. To install execute 'sudo apt install unzip' and rerun this script"
+    exit 1
+fi
+
 # --- Helper functions ---
 
 download_file() {
@@ -56,7 +61,7 @@ if command -v java >/dev/null 2>&1; then
         javaVersion=null
     fi
 else
-    echo "Java is not installed or not on PATH."
+    echo "Java is not installed or not on the PATH."
 fi
 
 # --- Prompt user for JRE option ---
@@ -91,17 +96,17 @@ elif [[ "$option" == "2" ]]; then
     os=$(uname -s)
     arch=$(uname -m) 
 
-    if [[ os == "Darwin" ]] then
-        os = "macos"
-    elif [[ os == "*nux*" ]] then
-        os = "linux"
+    if [[ "$os" == "Darwin" ]]; then
+        os="macos"
+    elif [[ "$os" == *nux* ]]; then
+        os="linux"
     else 
         echo "Unsupported OS: $os"
         exit 1
     fi
 
-    if [[ arch == "x86_64" ]] then
-        arch = "x64"
+    if [[ $arch == "x86_64" ]]; then
+        arch="x64"
     fi
 
     jreUrl="https://download.oracle.com/java/24/latest/jdk-24_$os-${arch}_bin.tar.gz"
@@ -143,10 +148,11 @@ fi
 
 # --- Projects directory ---
 defaultProjectsDir="$HOME/compositions"
-read -rp "Enter the directory where your Ponticello projects will be located (default=$defaultProjectsDir): " projectsDir
+read -rp "Enter the directory where your Ponticello projects will be located: " projectsDir
 projectsDir="${projectsDir:-$defaultProjectsDir}"
+mkdir -p "$projectsDir"
 export PONTICELLO_PROJECTS="$projectsDir"
-echo "export PONTICELLO_PROJECTS=\"$projectsDir\"" >> ~/.bashrc
+echo "export PONTICELLO_PROJECTS='$projectsDir'" >> ~/.bashrc
 
 echo "Ponticello was setup successfully."
 echo "You can now run it using 'ponticello <project-name>'"
