@@ -15,12 +15,22 @@ h1 {
     font-family: "Inconsolota", monospace;
     font-weight: 100;
     padding-right: 20px;
+    line-height: 1;
+}
+
+h2 {
+    line-height: 1;
 }
 
 h3 {
     color: white;
     font-family: "Inconsolota", monospace;
     font-weight: 500;
+    line-height: 1;
+}
+
+h4 {
+    line-height: 1;
 }
 
 #menu {
@@ -56,11 +66,16 @@ audio {
 
 #content {
     float: left;
+    width: 1000px;
+    min-height: 100;
+    padding: 0px 10px;
+    background-color: rgba(50, 50, 50, 0.3);
+    line-height: 1.5;
 }
 
-.column {
-    float: left;
-    width: 500px;
+.container {
+    display: flex;
+    justify-content: center;
 }
 
 form {
@@ -91,13 +106,12 @@ input:focus, textarea:focus {
     background-color: #410000;;
 }
 
-#email-input {
-    min-width: 50vw;
-}
-
 #message-input {
     min-height: 100px;
-    min-width: 50vw;
+}
+
+form {
+    padding: 10px 5px;
 }
 
 pre {
@@ -106,7 +120,7 @@ pre {
     padding: 0px 10px;
     border-radius: 8px;
     overflow-x: auto;
-    font-size: 14px;
+    font-size: 13px;
     border: 1px solid grey;
 }
 code {
