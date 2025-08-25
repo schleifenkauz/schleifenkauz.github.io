@@ -1,5 +1,16 @@
+$defaultPonticelloVersion = "0.2.2"
+$ponticelloVersion = Read-Host "Enter Ponticello version (default=$defaultPonticelloVersion)"
+if ("" -eq $ponticelloVersion) {
+    $ponticelloVersion = $defaultPonticelloVersion
+}
+
 # Prompt the user for a target directory
-$homeDir = Read-Host "Enter the Ponticello home directory"
+$defaultHomeDir = Join-Path $HOME "ponticello"
+$homeDir = Read-Host "Enter the Ponticello home directory (default=$defaultHomeDir)"
+if ($homeDir -eq "") {
+    $homeDir = $defaultHomeDir
+}
+
 [System.Environment]::SetEnvironmentVariable("PONTICELLO_HOME", $homeDir, "User")
 
 # Create the directory if it doesn't exist
@@ -33,14 +44,6 @@ function Extract-Zip($zipPath, $destination) {
 
 New-Item -ItemType Directory -Path (Join-Path $homeDir "lib") | Out-Null
 
-# Download and extract JavaFX SDK
-$javafxUrl = "https://download2.gluonhq.com/openjfx/21.0.8/openjfx-21.0.8_windows-x64_bin-sdk.zip"
-$javafxZip = Join-Path $homeDir "javafx-sdk.zip"
-Download-File $javafxUrl $javafxZip "JavaFX SDK"
-Extract-Zip $javafxZip (Join-Path $homeDir "lib")
-Rename-Item -Path "$homeDir\lib\javafx-sdk-21.0.8" -NewName "javafx"
-Remove-Item $javafxZip -Force
-
 try {
     $versionOutput = & java -version 2>&1 | Select-String 'version' | ForEach-Object { $_.ToString() }
     
@@ -72,17 +75,17 @@ if ($null -eq $javaVersion) {
     Write-Host "1) Use Java from the PATH"
     Write-Host "2) Install Java automatically"
 }
-$option = Read-Host "Choose option: "
+$option = Read-Host "Choose option (default=1)"
 
 $jdkDir = (Join-Path $homeDir "lib\jdk")
 if ("1" -eq $option) {
     if ($null -eq $javaVersion) {
-        $jdkPath = Read-Host "Path to Java Runtime Environment: "
+        $jdkPath = Read-Host "Path to Java Runtime Environment"
     } else {
-        $jdkPath = (Get-Command java).Source
+        $jdkPath = Split-Path (Split-Path (Get-Command java).Source)
     }
-    New-Item -ItemType Junction -Path $jdkDir -Target $jdkPath
-    Write-Host "Linked created: $jdkPath -> $jdkDir"
+    New-Item -ItemType Junction -Path $jdkDir -Target $jdkPath | Out-Null
+    Write-Host "Link created: $jdkPath -> $jdkDir"
 } elseif ("2" -eq $option) {
     $jreUrl = "https://download.oracle.com/java/24/latest/jdk-24_windows-x64_bin.zip"
     $jreZip = Join-Path $homeDir "jre.zip"
@@ -92,8 +95,16 @@ if ("1" -eq $option) {
     Remove-Item $jreZip -Force
 }
 
+# Download and extract JavaFX SDK
+$javafxUrl = "https://download2.gluonhq.com/openjfx/21.0.8/openjfx-21.0.8_windows-x64_bin-sdk.zip"
+$javafxZip = Join-Path $homeDir "javafx-sdk.zip"
+Download-File $javafxUrl $javafxZip "JavaFX SDK"
+Extract-Zip $javafxZip (Join-Path $homeDir "lib")
+Rename-Item -Path "$homeDir\lib\javafx-sdk-21.0.8" -NewName "javafx"
+Remove-Item $javafxZip -Force
+
 #Download and extract Ponticello
-$ponticelloUrl = "https://schleifenkauz.de/software/ponticello.zip"
+$ponticelloUrl = "https://schleifenkauz.de/software/ponticello-v$ponticelloVersion.zip"
 $ponticelloZip = Join-Path $homeDir "ponticello.zip"
 Download-File $ponticelloUrl $ponticelloZip "Ponticello"
 Extract-Zip $ponticelloZip $homeDir
@@ -112,8 +123,11 @@ if ($currentPath.Split(";") -notcontains $dirToAdd) {
     Write-Host "Ponticello scripts are already in PATH."
 }
 
-
-$projectsDir = Read-Host "Enter the directory where your Ponticello projects will be located: "
+$defaultProjectsDir = Join-Path $HOME "compositions"
+$projectsDir = Read-Host "Enter the directory where your Ponticello projects will be located (default=$defaultProjectsDir)"
+if ($projectsDir -eq "") {
+    $projectsDir = $defaultProjectsDir
+}
 [System.Environment]::SetEnvironmentVariable("PONTICELLO_PROJECTS", $projectsDir, "User")
 
 Write-Host "Ponticello was setup succesfully."
