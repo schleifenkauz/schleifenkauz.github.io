@@ -48,6 +48,7 @@ async function requestFullTrack(btn, trackName) {
         if (cachedEmail != null) {
             emailField.value = cachedEmail;
         }
+        emailField.focus()
         btn.textContent = "Confirm email"
         let previewDisclaimer = btn.nextElementSibling
         previewDisclaimer.style.display = "none"
