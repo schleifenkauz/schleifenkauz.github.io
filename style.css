@@ -10,17 +10,16 @@ body {
     grid-template-rows: auto 1fr;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1050px) {
   .page {
-    margin-left: 34%;
-    width: 66%;
+    margin-left: 35%;
+    width: 65%;
   }
 }
 
 @media (min-width: 1650px) {
   .page {
-    margin-left: 40%;
-    width: 40%;
+    width: 45%;
   }
 }
 
