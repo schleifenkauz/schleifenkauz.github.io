@@ -1,10 +1,50 @@
+/* --- Layout --- */
+
+#content {
+    float: left;
+    width: 40%;
+    padding: 0px 10px;
+    background-color: rgba(50, 50, 50, 0.3);
+    line-height: 1.5;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#portrait {
+    border: 1px solid white;
+}
+
+.horizontal {
+    display: flex;
+}
+
+#header {
+    position: fixed;
+}
+
+#menu {
+    align-items: center;
+}
+
 body {
     background-color: black;
     color: white;
     padding: 10px;
     font-family: "Inconsolata", monospace;
     font-weight: 300;
+
+    background-image: url('/img/v8_3.png'); 
+    background-size: 50%;
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-blend-mode: normal;
 }
+
+/* --- General --- */
 
 p {
     font-size: 16px !important;
@@ -33,14 +73,6 @@ h4 {
     line-height: 1;
 }
 
-#menu {
-    align-items: center;
-}
-
-.horizontal {
-    display: flex;
-}
-
 a {
     font-family: "Inconsolata", monospace;
     font-weight: 400;
@@ -64,24 +96,14 @@ audio {
     height: 45px;
 }
 
-#content {
-    float: left;
-    width: 1000px;
-    min-height: 100;
-    padding: 0px 10px;
-    background-color: rgba(50, 50, 50, 0.3);
-    line-height: 1.5;
-}
 
-.container {
-    display: flex;
-    justify-content: center;
-}
+/* --- Forms --- */
 
 form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding: 10px 5px;
 }
 
 input, textarea {
@@ -103,15 +125,18 @@ input:focus, textarea:focus {
 }
 
 #submit-button:hover {
-    background-color: #410000;;
+    background-color: rgba(0, 0, 255, 0.2);
 }
 
 #message-input {
     min-height: 100px;
 }
 
-form {
-    padding: 10px 5px;
+/* --- Code --- */
+
+.code-container {
+    position: relative;
+    margin-bottom: 20px;
 }
 
 pre {
@@ -146,9 +171,4 @@ code {
 
 .copy-btn:hover {
     background: rgba(0, 0, 255, 0.3);
-}
-
-.code-container {
-    position: relative;
-    margin-bottom: 20px;
 }

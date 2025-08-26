@@ -12,22 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
     <link rel="icon" href="/img/icon.png" type="image/png">
-
-    <script>
-        function copyCode(button) {
-            const codeBlock = button.nextElementSibling.innerText;
-            navigator.clipboard.writeText(codeBlock).then(() => {
-                button.textContent = "Copied!";
-                setTimeout(() => (button.textContent = "Copy"), 1500);
-            });
-        }
-    </script>
-
 </head>
 
-<body
-    style="background-image: url('/img/v8_3.png'); background-repeat: no-repeat; background-attachment: scroll; background-blend-mode: normal;">
-    <div class="horizontal">
+<body>
+    <div class="horizontal" id="header">
         <a href="./">
             <h1>SCHLEIFENKAUZ</h1>
         </a>
@@ -48,7 +36,9 @@
         </div>
     </div>
     <div class="container">
-            <div id="content"></div>
+        <div id="content"></div>
+        <!-- <img id="portrait" src="img/niko square.jpg" width="25%" height="25%"/> -->
+
     </div>
 </body>
 

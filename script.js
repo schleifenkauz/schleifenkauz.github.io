@@ -11,16 +11,24 @@ document.onreadystatechange = function () {
 
 function include(element, site) {
     const req = new XMLHttpRequest();
-    req.onreadystatechange = function() {
+    req.onreadystatechange = function () {
         if (this.readyState == 4) {
             console.log(this.status);
             if (this.status == 200) {
                 element.innerHTML += this.responseText;
             }
-            if (this.status == 404) {element.innerHTML = "Page not found.";}
+            if (this.status == 404) { element.innerHTML = "Page not found."; }
         }
     }
-    const url =  `${window.location.origin}/sites/${site}.html`;
+    const url = `${window.location.origin}/sites/${site}.html`;
     req.open("GET", url, true);
     req.send();
+}
+
+function copyCode(button) {
+    const codeBlock = button.nextElementSibling.innerText;
+    navigator.clipboard.writeText(codeBlock).then(() => {
+        button.textContent = "Copied!";
+        setTimeout(() => (button.textContent = "Copy"), 1500);
+    });
 }
