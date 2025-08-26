@@ -129,7 +129,8 @@ form {
 input,
 textarea {
     background-color: black;
-    border-width: 0px;
+    border-width: 1px;
+    border-color: transparent;
     color: white;
     outline: none !important;
     padding: 5px;
@@ -137,7 +138,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-    border: 1px solid blue;
+    border-color: blue;
 }
 
 #submit-button {
