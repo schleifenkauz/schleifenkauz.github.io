@@ -42,7 +42,7 @@ let cachedEmail = null
 
 async function requestFullTrack(btn, trackName) {
     const emailField = btn.previousElementSibling;
-    if (btn.textContent == "Download full track") {
+    if (btn.textContent == "Get a download link") {
         console.log("Making ", emailField, "visible");
         emailField.style.display = "block";
         if (cachedEmail != null) {
