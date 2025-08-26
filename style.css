@@ -3,9 +3,10 @@
 #content {
     float: left;
     width: 40%;
-    margin-top: 20px;
+    margin-top: 15px;
     padding: 0px 20px;
-    background-color: rgba(50, 50, 50, 0.3);
+    background-color: rgba(50, 50, 50, 0.33);
+    border-radius: 10px;
     line-height: 1.5;
 }
 
@@ -28,7 +29,10 @@
 }
 
 #menu {
-    align-items: center;
+    background-color: rgba(50, 50, 50, 0.33);
+    padding: 10px;
+    gap: 4px;
+    border-radius: 8px;
 }
 
 body {
@@ -81,7 +85,7 @@ a {
 }
 
 a:visited {
-    color: lightblue;
+    color: rgb(0, 174, 232);
 }
 
 .menu-link {
