@@ -129,20 +129,22 @@ form {
 input,
 textarea {
     background-color: black;
-    border-color: white;
-    border-width: 1px;
+    border-width: 0px;
     color: white;
+    outline: none !important;
+    padding: 5px;
 }
 
 input:focus,
 textarea:focus {
-    border-color: blue;
+    border: 1px solid blue;
 }
 
 #submit-button {
     padding: 5px;
     font-size: 15px;
     color: white;
+    border: none;
     background-color: rgb(36, 32, 32);
 }
 
@@ -252,12 +254,7 @@ audio:focus {
     padding: 8px;
     width: 250px;
     display: none;
-    border: 1px solid black;
     border-radius: 5px;
-}
-
-.email-input:focus {
-    outline: none;
 }
 
 .status-text {
