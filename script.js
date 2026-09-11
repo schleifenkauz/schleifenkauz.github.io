@@ -1,4 +1,4 @@
-const queryStr = window.location.search;
+/* const queryStr = window.location.search;
 const urlParams = new URLSearchParams(queryStr);
 const site = urlParams.get('q') ?? 'home';
 
@@ -7,7 +7,7 @@ document.onreadystatechange = function () {
         const contentEl = document.getElementById('content');
         include(contentEl, site);
     }
-};
+}; */
 
 function include(element, site) {
     const req = new XMLHttpRequest();

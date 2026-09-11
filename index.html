@@ -3,7 +3,6 @@
 
 <head>
     <title>schleifenkauz</title>
-    <script type="text/javascript" src="/script.js"></script>
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="/img/niko v11.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,27 +21,83 @@
             </a>
 
             <div id="menu" class="horizontal">
-                <a class="menu-link" href="./index.html">home</a>
-                <a class="menu-link" href="./index.html?q=audio">audio</a>
-                <!-- 
-            <div style="padding-left:20px">
-                <a href="./index.html?q=acousmatic-music">electronic</a>
-                <a href="./index.html?q=instrumental">instrumental</a> <br>
-                <a href="./index.html?q=piano-recordings">piano recordings</a>  
-            </div> -->
-                <a class="menu-link" href="./index.html?q=scores">scores</a>
-                <!-- <a class="menu-link" href="./index.html?q=software">software</a> -->
-                <a class="menu-link" href="./index.html?q=ponticello">ponticello</a>
-                <a class="menu-link" href="./cv/cv.pdf">cv</a> 
-                <a class="menu-link" href="./index.html?q=contact">contact</a>
-                <a class="menu-link" href="./index.html?q=imprint">imprint</a>
-            </div>
+                <a class="menu-link" href="#home">home</a>
+                <a class="menu-link" href="#audio">audio</a>
+                <a class="menu-link" href="#scores">scores</a>
+                <a class="menu-link" href="#ponticello">ponticello</a>
+                <a class="menu-link" href="./cv/cv.pdf">cv</a></div>
 
         </div>
         <div class="container">
-            <div id="content"></div>
+            <div id="content">
+                <!-- HOME SECTION -->
+                <section id="home" class="page-section"></section>
+
+                <!-- AUDIO SECTION -->
+                <section id="audio" class="page-section"></section>
+
+                <!-- SCORES SECTION -->
+                <section id="scores" class="page-section"></section>
+
+                <!-- PONTICELLO SECTION -->
+                <section id="ponticello" class="page-section"></section>
+
+                <!-- CV SECTION -->
+                <section id="cv" class="page-section"></section>
+
+                <!-- CONTACT SECTION -->
+                <section id="contact" class="page-section"></section>
+
+                <!-- IMPRINT SECTION -->
+                <section id="imprint" class="page-section"></section>
+            </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="/script.js"></script>
+    <script>
+        // Load all sections from their individual files
+        const sections = [
+            { id: 'home', file: 'home' },
+            { id: 'audio', file: 'audio' },
+            { id: 'scores', file: 'scores' },
+            { id: 'ponticello', file: 'ponticello' },
+//            { id: 'contact', file: 'contact' },
+            { id: 'imprint', file: 'imprint' }
+        ];
+
+        function scrollToSection(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                const container = document.querySelector('.container');
+                const targetOffset = targetElement.offsetTop - container.offsetTop;
+                container.scrollTo({
+                    top: targetOffset,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            sections.forEach(section => {
+                const element = document.getElementById(section.id);
+                include(element, section.file);
+            });
+
+            // Handle hash-based navigation
+            if (window.location.hash) {
+                setTimeout(() => {
+                    const targetId = window.location.hash.substring(1);
+                    scrollToSection(targetId);
+                }, 100);
+            }
+        });
+
+        window.addEventListener('hashchange', function() {
+            const targetId = window.location.hash.substring(1);
+            scrollToSection(targetId);
+        });
+    </script>
 </body>
 
 </html>
